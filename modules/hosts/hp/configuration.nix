@@ -24,7 +24,7 @@
     home-manager.users.zen.monitor = [
       "eDP-1, 1920x1080, 0x0, 1"
     ];
-
+    services.udisks2.enable = true;
     wifi.enable = true;
     username = "zen";
     system.stateVersion = "23.11"; # absolutely do not change

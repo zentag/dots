@@ -10,7 +10,7 @@
       headless
       headless-hardware
 
-      odysseus
+      owntracks
     ];
   };
   flake.nixosModules.headless = {
