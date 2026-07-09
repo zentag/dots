@@ -2,7 +2,7 @@
   flake.nixosModules.owntracks = {
     services.mosquitto = {
       enable = true;
-      logType = "all";
+      logType = ["all"];
       listeners = [
         {
           port = 1883;
