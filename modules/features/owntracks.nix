@@ -7,28 +7,14 @@
         {
           port = 1883;
           address = "0.0.0.0";
+          acl = [
+            "pattern read #"
+          ];
+
           users = {
-            zen = {
-              password = "test";
-              acl = [
-                "readwrite owntracks/zen/zen"
-                "read owntracks/+/+"
-              ];
-            };
-            dodi = {
-              password = "test";
-              acl = [
-                "readwrite owntracks/dodi/dodi"
-                "read owntracks/+/+"
-              ];
-            };
-            mike = {
-              password = "test";
-              acl = [
-                "readwrite owntracks/mike/mike"
-                "read owntracks/+/+"
-              ];
-            };
+            zen.password = "test";
+            dodi.password = "test";
+            mike.password = "test";
           };
         }
       ];
