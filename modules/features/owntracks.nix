@@ -10,9 +10,25 @@
           users = {
             zen = {
               password = "test";
+              acl = [
+                "readwrite owntracks/zen/zen"
+                "read owntracks/+/+"
+              ];
             };
-            dodi.password = "test";
-            mike.password = "test";
+            dodi = {
+              password = "test";
+              acl = [
+                "readwrite owntracks/dodi/dodi"
+                "read owntracks/+/+"
+              ];
+            };
+            mike = {
+              password = "test";
+              acl = [
+                "readwrite owntracks/mike/mike"
+                "read owntracks/+/+"
+              ];
+            };
           };
         }
       ];
