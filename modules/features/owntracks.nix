@@ -1,22 +1,19 @@
 {
-  flake.nixosModules.owntracks = {pkgs, ...}: {
-    systemd.services.owntracks = {
+  flake.nixosModules.owntracks = {
+    services.mosquitto = {
       enable = true;
-      description = "owntracks recorder";
-      serviceConfig = {
-        ExecStart = ''
-          ${pkgs.owntracks-recorder}/bin/ot-recorder \
-             --storage /var/lib/owntracks/recorder/store \
-             --port 0
-        '';
-        DynamicUser = true;
-        StateDirectory = "owntracks";
-        Restart = "always";
-      };
-      wantedBy = ["multi-user.target"];
+
+      listeners = [
+        {
+          port = 1883;
+          address = "0.0.0.0";
+          users = {
+            "zen" = {
+              password = "test";
+            };
+          };
+        }
+      ];
     };
-    environment.systemPackages = with pkgs; [
-      owntracks-recorder
-    ];
   };
 }
