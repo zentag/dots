@@ -14,6 +14,7 @@
             zen.password = "test";
             dodi.password = "test";
             mike.password = "test";
+            em.password = "test";
           };
         }
       ];
