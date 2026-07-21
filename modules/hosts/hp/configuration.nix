@@ -18,6 +18,7 @@
       ssh
       tailscale
       virtualisation
+      mediamtx
     ];
   };
   flake.nixosModules.hp = {
