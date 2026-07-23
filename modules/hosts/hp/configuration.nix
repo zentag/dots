@@ -10,6 +10,7 @@
       hp
       hp-hardware
 
+      claude
       design
       frc
       fun
@@ -18,7 +19,6 @@
       ssh
       tailscale
       virtualisation
-      mediamtx
     ];
   };
   flake.nixosModules.hp = {
