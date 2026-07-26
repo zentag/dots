@@ -10,4 +10,8 @@
     "x86_64-darwin"
     "aarch64-darwin"
   ];
+
+  config.perSystem = {pkgs, ...}: {
+    formatter = pkgs.alejandra;
+  };
 }
