@@ -9,6 +9,8 @@
       allowVideoAccess = true;
 
       settings = {
+        playback = true; # enables the /list and /get HTTP API for browsing/streaming recordings
+
         paths = {
           cam1 = {
             runOnInit =
@@ -31,6 +33,6 @@
 
     systemd.services.mediamtx.serviceConfig.StateDirectory = "mediamtx";
 
-    networking.firewall.allowedTCPPorts = [8554 8888 8889];
+    networking.firewall.allowedTCPPorts = [8554 8888 8889 9996];
   };
 }
