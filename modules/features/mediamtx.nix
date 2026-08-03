@@ -6,7 +6,7 @@
   }: {
     services.mediamtx = {
       enable = true;
-      allowVideoAccess = true; # lets the sandboxed service open /dev/video0
+      allowVideoAccess = true;
 
       settings = {
         paths = {
@@ -14,14 +14,23 @@
             runOnInit =
               "${lib.getExe pkgs.ffmpeg} -f v4l2 -i /dev/video0 "
               + "-c:v libx264 -preset veryfast -tune zerolatency "
+              + "-b:v 400k -maxrate 400k -bufsize 800k "
               + "-f rtsp rtsp://localhost:8554/cam1";
-            runOnInitRestart = true; # auto-restarts ffmpeg if it dies or capture card hiccups
+            runOnInitRestart = true;
+
+            # record to disk, keeping ~1 week (~30GB at 400kbps) and deleting older segments
+            record = true;
+            recordPath = "/var/lib/mediamtx/recordings/%path/%Y-%m-%d_%H-%M-%S-%f";
+            recordFormat = "fmp4";
+            recordSegmentDuration = "1h";
+            recordDeleteAfter = "7d";
           };
         };
       };
     };
 
-    # open the ports so other devices on your LAN can view the stream
+    systemd.services.mediamtx.serviceConfig.StateDirectory = "mediamtx";
+
     networking.firewall.allowedTCPPorts = [8554 8888 8889];
   };
 }
