@@ -5,4 +5,8 @@
     comment.enable = true;
     surround.enable = true;
   };
+  vim.treesitter = {
+    enable = true;
+    textobjects.enable = true;
+  };
 }

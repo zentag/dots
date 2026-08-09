@@ -28,10 +28,6 @@
       html.enable = true;
       java.enable = true;
       lua.enable = true;
-      markdown = {
-        enable = true;
-        extensions.markview-nvim.enable = true;
-      };
       nim.enable = true;
       nix.enable = true;
       # nixd has better autocomplete than nil
