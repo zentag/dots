@@ -23,7 +23,12 @@
   };
   flake.nixosModules.hp = {
     home-manager.users.zen.monitor = [
-      "eDP-1, 1920x1080, 0x0, 1"
+      {
+        output = "eDP-1";
+        mode = "1920x1080";
+        position = "0x0";
+        scale = "1";
+      }
     ];
     services.udisks2.enable = true;
     wifi.enable = true;

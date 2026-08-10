@@ -36,7 +36,7 @@
         systemd-boot = {
           enable = true;
           # prevents /boot from getting full and cleaner look on startup
-          configurationLimit = 10;
+          configurationLimit = 7;
         };
         efi.canTouchEfiVariables = true;
       };

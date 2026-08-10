@@ -5,7 +5,7 @@ cd .. || exit
 if ! hyprctl clients | grep "$(pwd)" >/dev/null; then
         ./helpers/neovim.sh "$(pwd)"
 else
-        hyprctl dispatch focuswindow title:"$(pwd)"
+        hyprctl dispatch "hl.dsp.focus({ window = 'title:$(pwd)' })"
 fi
 sleep 2
 while true; do
