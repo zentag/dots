@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-dir=$(realpath "${1:-$(pwd)}")
+dir="${1:-$(pwd)}"
+echo $dir
 hyprctl dispatch "hl.dsp.exec_cmd('ghostty --working-directory=$dir --title=$dir -e nvim $dir', { workspace = \"2\" })"
