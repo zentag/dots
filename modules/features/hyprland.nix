@@ -36,6 +36,24 @@
             ecosystem.no_update_news = true;
             group.groupbar.height = 0;
           };
+          # FreeCAD's dialogs/popups share the same window class as its main
+          # window, so float everything in that class, then force the main
+          # window (title contains "FreeCAD") back to tiled.
+          window_rule = [
+            {
+              match = {
+                class = "org\\.freecad\\.FreeCAD";
+              };
+              float = true;
+            }
+            {
+              match = {
+                class = "org\\.freecad\\.FreeCAD";
+                title = ".*FreeCAD.*";
+              };
+              tile = true;
+            }
+          ];
           # open the programs how I like them on startup
           on = {
             _args = [
