@@ -4,11 +4,12 @@
     ./completion.nix
     ./cosmetic.nix
     ./dap.nix
-    ./lsp.nix
-    ./keymaps.nix
+    ./format.nix
     ./highlighting.nix
+    ./keymaps.nix
+    ./lsp.nix
+    ./picking.nix
     ./startup.nix
     ./text-processing.nix
-    ./picking.nix
   ];
 }
