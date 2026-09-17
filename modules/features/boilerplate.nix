@@ -32,13 +32,16 @@
         };
       };
       # bootloader
-      boot.loader = {
-        systemd-boot = {
-          enable = true;
-          # prevents /boot from getting full and cleaner look on startup
-          configurationLimit = 7;
+      boot = {
+        loader = {
+          systemd-boot = {
+            enable = true;
+            # prevents /boot from getting full and cleaner look on startup
+            configurationLimit = 7;
+          };
+          efi.canTouchEfiVariables = true;
         };
-        efi.canTouchEfiVariables = true;
+        kernel.sysctl."kernel.sysrq" = 1;
       };
       hardware = {
         enableAllFirmware = true;
