@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   vim = {
     # show errors inline
     extraPlugins = {
@@ -40,5 +44,20 @@
       yaml.enable = true;
       zig.enable = true;
     };
+    luaConfigRC.jdtls-annotation-processing = lib.nvim.dag.entryAnywhere ''
+      vim.lsp.config("jdtls", {
+        settings = {
+          java = {
+            import = {
+              gradle = {
+                annotationProcessing = {
+                  enabled = true,
+                },
+              },
+            },
+          },
+        },
+      })
+    '';
   };
 }
