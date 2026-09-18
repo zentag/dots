@@ -49,6 +49,19 @@
         settings = {
           java = {
             import = {
+              -- keep upstream defaults and add .direnv, which otherwise gets
+              -- scanned for nested build.gradle files (nix flake inputs can
+              -- mirror project dirs into a read-only .direnv/flake-inputs
+              -- path, and jdtls repeatedly fails trying to import those,
+              -- which was disrupting annotation processing setup for real
+              -- projects sharing the same jdtls workspace)
+              exclusions = {
+                "**/node_modules/**",
+                "**/.metadata/**",
+                "**/archetype-resources/**",
+                "**/META-INF/maven/**",
+                "**/.direnv/**",
+              },
               gradle = {
                 annotationProcessing = {
                   enabled = true,
