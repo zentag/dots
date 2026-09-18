@@ -45,7 +45,7 @@
       zig.enable = true;
     };
     luaConfigRC.jdtls-annotation-processing = lib.nvim.dag.entryAnywhere ''
-      vim.lsp.config("jdtls", {
+      vim.lsp.config("jdt-language-server", {
         settings = {
           java = {
             import = {
