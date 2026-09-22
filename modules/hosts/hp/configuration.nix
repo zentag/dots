@@ -15,7 +15,6 @@
       frc
       fun
       gaming
-      music
       ssh
       tailscale
       virtualisation
