@@ -8,7 +8,7 @@
         formatters_by_ft.java = ["google-java-format"];
         formatters.google-java-format = {
           command = "${pkgs.google-java-format}/bin/google-java-format";
-          args = ["--aosp" "-"];
+          args = ["-"];
           stdin = true;
         };
       };
