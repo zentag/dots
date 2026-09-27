@@ -11,6 +11,9 @@
           args = ["-"];
           stdin = true;
         };
+        # nvf's astyle (used by clang) formats a .conform.* temp file in
+        # place, and astyle leaves a .orig backup of it behind by default
+        formatters.astyle.prepend_args = ["--suffix=none"];
       };
     };
   };
