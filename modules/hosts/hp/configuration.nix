@@ -57,9 +57,11 @@
         extraGroups = [
           # sudo privileges
           "wheel"
-          "audio"
           # for access to serial devices, in my case microcontrollers
           "dialout"
+          # self explanatory
+          "audio"
+          "docker"
         ];
       };
     };
