@@ -12,6 +12,7 @@
 
       claude
       design
+      docker
       frc
       fun
       gaming
